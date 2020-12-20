@@ -12,7 +12,7 @@ lines.each do |l|
   policy = parts.first
   pwd = parts.last
 
-  count_valid += 1 if PwdPolicy.new(policy).check(pwd)
+  count_valid += 1 if PwdCountPolicy.new(policy).check(pwd)
 end
 
-puts "Of #{lines.length} passwords, #{count_valid} are valid."
+puts "Using the COUNT policy, of #{lines.length} passwords, #{count_valid} are valid."
