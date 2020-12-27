@@ -9,4 +9,10 @@ class Slope
       slope[i] = line.split('')
     end
   end
+
+  def at(xpos, ypos)
+    return :tree if @slope[xpos][ypos] == '#'
+
+    :snow
+  end
 end
