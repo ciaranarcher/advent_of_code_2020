@@ -1,14 +1,23 @@
 # frozen_string_literal: true
 
+require_relative 'slope'
+
 input = File.read 'input.txt'
-lines = input.split("\n")
+slope = Slope.new(input)
 
-count_valid = 0
+count_trees = 0
+line = 0
+col = 0
 
-lines.each do |l|
-  parts = l.split(':')
-  policy = parts.first
-  pwd = parts.last
+loop do
+  result = slope.at(line, col)
 
-  count_valid += 1 if PwdCountPolicy.new(policy).check(pwd)
+  break if result == :done
+
+  count_trees += 1 if result == :tree
+
+  line += 1
+  col += 3
 end
+
+puts "Found #{count_trees} trees."

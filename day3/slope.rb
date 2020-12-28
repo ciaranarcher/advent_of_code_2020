@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Slope
   attr_reader :slope, :lines, :cols
 
